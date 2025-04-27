@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Block to add Kestrel TR library
 set(KESTREL_TR_DIR ${CMAKE_SOURCE_DIR}/externals/kestrel_tr)
 set(KESTREL_TR_LIB kestrel_tr_lib)
-set(KESTREL_TR_COMPILE_FLAGS Debug)
+set(KESTREL_TR_COMPILE_FLAGS DEBUG=1)
 set(KESTREL_TR_LINK_FLAGS -Wl,--allow-multiple-definition)
 
 # Find all .c files in KESTREL_TR_DIR

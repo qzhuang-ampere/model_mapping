@@ -12,3 +12,6 @@ _deps
 CMakeUserPresets.json
 build/**
 .vscode/**
+**/*.stats
+**/*.trace
+**/*.vt
