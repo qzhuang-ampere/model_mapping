@@ -1,0 +1,10 @@
+set(PROJECT_NAME example_gemm)
+
+project(${PROJECT_NAME})
+
+add_executable(${PROJECT_NAME} main.cpp)
+set(TARGET_COMPILE_DEFINITIONS USE_Q THREADS=1)
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE ${TARGET_COMPILE_DEFINITIONS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${KESTREL_TR_LIB})
+target_link_options(${PROJECT_NAME} PRIVATE ${KESTREL_TR_LINK_FLAGS})
