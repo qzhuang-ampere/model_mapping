@@ -8,6 +8,7 @@
 #include <cstring>
 #include <pthread.h>
 #include <iostream>
+#include <unistd.h>
 
 #include "kestrel.h"
 #include "q.h"
@@ -200,7 +201,7 @@ uint64_t asl_kernel(
     uint64_t kdoid1,
     uint64_t thread_id,
     uint64_t thread_count) {
-    QK_N2ONE_CK(0,128,1,kdoid1);
+    QK_N2ONE_CK(0,128,1,1,kdoid1);
     if (thread_id == 0) {
         printf("I'm asl kernel!\n");
     }
@@ -257,6 +258,8 @@ void matmul_softmax(
     kdid[0] = matmul_int8_kernel(0, thread_id, thread_count, c);
     kdid[1] = asl_kernel(1, kdid[0], thread_id, thread_count);
     kdid[2] = softmax_kernel(2, kdid[0], thread_id, thread_count, c);
+
+    sleep(3);
     Q_STOP_NT(kdid[2],0,0);
 }
 
